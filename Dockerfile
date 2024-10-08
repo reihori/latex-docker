@@ -1,9 +1,10 @@
 FROM ubuntu:24.04
 
 RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends texlive-full && \
+    apt-get install -y --no-install-recommends texlive-lang-japanese && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    tlmgr install latexmk
 
 ARG USERNAME=texuser
 ARG WORKSPACE=/workspace
